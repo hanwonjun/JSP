@@ -1,0 +1,462 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ page import = "java.sql.*" %>
+<%
+    request.setCharacterEncoding("euc-kr");
+%>
+<jsp:useBean id="regBean" class="ch08.MemberBean" scope="page"/>
+<jsp:setProperty name="regBean" property="*"	/>
+<%
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	
+	String id = "";
+	String passwd = "";
+	String name = "";
+	String email = "";
+	String phone = "";
+	
+	int counter = 0;
+	
+	try {
+		Class.forName("org.gjt.mm.mysql.Driver");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/mydb", "root", "seoil");
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("select * from member");
+%>
+
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Fitness html5 landing page</title>
+        
+        
+        
+<link rel="stylesheet" href="mdl/material.min.css">
+<script src="mdl/material.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+<link rel="stylesheet" href="style.css"> <!-- li 점 없애기 -->
+        
+        
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />			<!-- css -->
+        <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" />			<!-- css -->
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" href="css/custom.css" />
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+    
+    	<audio autoplay>
+		<source src="Turn Down For What.mp3" type ="audio/mp3" >
+		</audio>
+
+        <!-- Preloader --> 
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="object" id="object_one"></div>
+                    <div class="object" id="object_two"></div>
+                    <div class="object" id="object_three"></div>
+                    <div class="object" id="object_four"></div>
+                    <div class="object" id="object_five"></div>
+                    <div class="object" id="object_six"></div>
+                    <div class="object" id="object_seven"></div>
+                    <div class="object" id="object_eight"></div>
+                    <div class="object" id="object_big"></div>
+                </div>
+            </div>
+        </div>
+        <!--End Preloader -->
+
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <a href="#"><img src="images/fitness.png" alt="Fitness" /></a>
+
+                    <ul class="list-inline contact_info">
+                        <li><a href=""><span class="fa fa-envelope"></span><p>han01028761623@icloud.com</p></a></li>
+                        <li><a href=""><span class="fa fa-phone"></span><p>010-2876-1623</p></a></li>
+                        <li><a href=""><span class="fa fa-clock-o"></span><p>Mon - Sat : 9AM - 6PM</p></a></li>
+                    </ul>
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>					
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right" id="nav" >
+                    <ul class="nav">
+                    	<li role="presentation"><a href="logout.jsp">Logout</a></li>
+                        <li role="presentation"><a href="#home">Home</a></li>
+                        <li role="presentation"><a href="#about">About</a></li>
+                        <li role="presentation"><a href="#features">Company</a></li>
+                        <li role="presentation"><a href="#service">Our Services</a></li>
+                        <li role="presentation"><a href="#coaches">Recent News</a></li>
+                        <li role="presentation"><a href="#contact">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav><!-- Navbar end -->
+
+
+        <!-- Header -->
+        <header id="home">
+            <!-- Carousel -->
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+
+                    <div class="item active">
+                        <img src="images/slider_img.jpg" alt="Strong Body">
+                        <div class="carousel-caption photo_overlay">
+                            <div class="container">
+                                <div class="carousel_caption_inner">
+                                    <h3>Build Your </h3>
+                                    <h1>Body Strong</h1>
+
+                                    <p>서일대 최대의 스포츠센터 Edge Gym은<p> 최고의 시설로 진정한 휴식과 특별한 서비스를 드립니다. </p>						
+                                </div>						
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="images/slider_img.jpg" alt="Strong Body">
+                        <div class="carousel-caption photo_overlay">
+                            <div class="container">
+                                <div class="carousel_caption_inner">
+                                    <h3>Build Your </h3>
+                                    <h1>Body Strong</h1>
+
+                                    <p>서일대 최대의 스포츠센터 Edge Gym은<p>최고의 시설로 진정한 휴식과 특별한 서비스를 드립니다. </p>						
+                                </div>						
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="images/slider_img.jpg" alt="Strong Body">
+                        <div class="carousel-caption photo_overlay">
+                            <div class="container">
+                                <div class="carousel_caption_inner">
+                                    <h3>Build Your </h3>
+                                    <h1>Body Strong</h1>
+
+                                    <p>서일대 최대의 스포츠센터 Edge Gym은<p> 최고의 시설로 진정한 휴식과 특별한 서비스를 드립니다.</p>						
+                                </div>						
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- Carousel end-->
+        </header><!-- Header end -->
+
+        <!-- About -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-9">
+                        <div class="about_content">
+                            <img src="images/about_img.jpg" alt="" class="about_img" />
+                            <h2>→ Best Service Programs</h2>
+
+                            <p>
+							300평의 대규모 시설, 최신 음향 시스템설치, 100m 실내 조깅트랙, 체성분검사(Inbody)<p>
+							개인별 맞춤 트레이닝 서비스, 하루 종일 붙어 있는 효과를 내기 위한 SNS 서비스 등<p>
+							최고의 서비스를 저렴한 가격을 통해 만나보세요.</p>
+
+                            <a href="#about" class="btn know_btn">Know More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="yoga_content">
+                            <div class="yoga">
+                                <h3>Yoga <span>&xlarr;</span></h3>
+                                <p>명상과 호흡, 스트레칭 등이 결합된 복합적인 심신 수련</p>
+
+                                <a href="" class="btn link_btn">Know More</a>
+                            </div>
+                            <div class="yoga_banner">
+                                <img src="images/yoga_img.jpg" alt="Yoga" class="yoga_img" />
+                                <div class="photo_overlay"></div>
+                            </div>					
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section><!-- About end-->
+
+        <!-- Features -->
+        <section id="features">
+            <div class="container">
+                <h2>Our features classes</h2>
+                <p class="lead">checkout our fitness classes</p>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="feature_item">
+                            <span class="flaticon flaticon-running"></span>
+                            <h3>Diet Programs</h3>
+                            <p>올바른 지식을 가지고 Body를 완성한다면 살이 찌지 않는 체질로 변화하고,
+								신체 기능이 향상되어 극단적인 식단과 혹독한 트레이닝을 하지 않아도 멋지고 아름다운 몸매를 유지할 수 있습니다.</p>
+
+                            <a href="#about" class="btn know_btn">Know More</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="feature_item">
+                            <span class="flaticon flaticon-yoga-mat"></span>
+                            <h3>Yoga Programs</h3>
+                            <p>요가를 통해 몸매를 더욱 더 이쁘게 가꾸어보세요.
+								전문가 선생님을 통해 체형교정, 호흡법, 명상 등을 배워보세요.
+								자신이 로봇 몸이라고 생각하지 말고 한번 맡겨 보세요.
+								임산부도 충분히 가능합니다.</p>
+
+                            <a href="#about" class="btn know_btn">Know More</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="feature_item">
+                            <span class="flaticon flaticon-weightlifting"></span>
+                            <h3>Weight Programs</h3>
+                            <p>조각과 같은 몸<p>
+								잘못된 자세와 상식, 식습관 개선을 통하여<p>
+								자신의 체형에 맞는 최고의 몸을 Making 해드립니다.</p>
+
+                            <a href="#about" class="btn know_btn">Know More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- Features end -->
+
+        <!-- Service -->
+        <section id="service">
+            <div class="container">
+                <h2>Body Sculpturing Program</h2> <!-- 바디 조각 제작 프로그램 -->
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service_item">
+                            <div class="service_photo">
+                                <img src="images/program_img1.jpg" alt="Program" />
+                                <div class="photo_overlay"></div>						
+                            </div>
+                            <div class="service_caption">
+                                <h4>Body Sculpturing Program</h4>
+                                <p>by Mark Freeman, Jul 15, 2018</p>		<!-- 7월 -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service_item">
+                            <div class="service_photo">
+                                <img src="images/program_img2.jpg" alt="Program" />
+                                <div class="photo_overlay"></div>						
+                            </div>
+                            <div class="service_caption">
+                                <h4>Body Sculpturing Program</h4>
+                                <p>by Mark Freeman, Jul 16, 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service_item">
+                            <div class="service_photo">
+                                <img src="images/program_img3.jpg" alt="Program" />
+                                <div class="photo_overlay"></div>						
+                            </div>
+                            <div class="service_caption">
+                                <h4>Body Sculpturing Program</h4>
+                                <p>by Mark Freeman, Jul 17, 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service_item">
+                            <div class="service_photo">
+                                <img src="images/program_img4.jpg" alt="Program" />
+                                <div class="photo_overlay"></div>						
+                            </div>
+                            <div class="service_caption">
+                                <h4>Body Sculpturing Program</h4>
+                                <p>by Mark Freeman, Jul 18, 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service_item">
+                            <div class="service_photo">
+                                <img src="images/program_img5.jpg" alt="Program" />
+                                <div class="photo_overlay"></div>						
+                            </div>
+                            <div class="service_caption">
+                                <h4>Body Sculpturing Program</h4>
+                                <p>by Mark Freeman, Jul 19, 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service_item">
+                            <div class="service_photo">
+                                <img src="images/program_img6.jpg" alt="Program" />
+                                <div class="photo_overlay"></div>						
+                            </div>
+                            <div class="service_caption">
+                                <h4>Body Sculpturing Program</h4>
+                                <p>by Mark Freeman, Jul 20, 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Service end -->
+
+        <!-- Coaches -->
+        <div id="coaches" class="coaches">
+            <div class="container">
+                <div class="coaches_content">
+                    <div class="size_120 no_photo coach_item">
+                        <h3>Yoga</h3>
+                    </div>
+                    <div class="size_180 coach_item">
+                        <img src="images/coach_img1.png" alt="Coach" />
+                    </div>
+                    <div class="size_270 coach_item">
+                        <img src="images/coach_img2.png" alt="Coach" />
+                    </div>
+                    <div class="size_110 coach_item">
+                        <img src="images/coach_img3.png" alt="Coach" />
+                    </div>
+                    <div class="size_195 coach_item">
+                        <img src="images/coach_img4.png" alt="Coach" />
+                    </div>
+                    <div class="size_110 no_photo coach_item">
+                        <h3>Yoga</h3>
+                    </div>
+                    <div class="size_135 coach_item">
+                        <img src="images/coach_img5.png" alt="Coach" />
+                    </div>
+                    <div class="size_195 coach_item">
+                        <img src="images/coach_img6.png" alt="Coach" />
+                    </div>
+                    <div class="size_180 coach_item">
+                        <img src="images/coach_img7.png" alt="Coach" />
+                    </div>
+                    <div class="size_180 no_photo coach_item">
+                        <h3>Gym</h3>
+                    </div>
+                    <div class="size_135 coach_item">
+                        <img src="images/coach_img8.png" alt="Coach" />
+                    </div>
+                    <div class="size_195 coach_item">
+                        <img src="images/coach_img9.png" alt="Coach" />
+                    </div>
+                    <div class="size_195 coach_item">
+                        <img src="images/coach_img10.png" alt="Coach" />
+                    </div>			
+                </div>
+            </div>
+        </div><!-- Coaches end -->
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="white_shape"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about_us">
+                            <div class="about_us_content">
+                                <img src="images/footer_logo.png" alt="Fitness" />
+                                <p> 안녕하세요. Edge Gym 대표 한원준입니다. <p>
+                                	최선을 다해 여러분들이 원하는 목표를 이루도록 해드리겠습니다. <p>
+																		
+									이를 위해서 Edge Gym 팀원은 트레이닝관련 전공자 및 국가자격증 소지자로 구성되어 있음은 물론<p>
+									더욱 더 서비스의 수준을 높이기 위하여 우리나라 최고의 교수님, 박사님들과 교류를 맺고 자문을 구하고 있으며,
+									주기적인 세미나를 통해 자기개발에 끊임없이 노력하고 있습니다.
+									<p>
+									오늘 변한다면 목표는 이루게 됩니다.</p>						
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer_right quick_link">
+                            <h3>Quick Links</h3>
+                            <ul class="list-unstyled footer_menu">
+                                <li role="presentation"><a href="#">Home</a></li>
+                                <li role="presentation"><a href="#about">About</a></li>
+                                <li role="presentation"><a href="#company">Company</a></li>
+                                <li role="presentation"><a href="#services">Our Services</a></li>
+                                <li role="presentation"><a href="#service">Service</a></li>
+                                <li role="presentation"><a href="#location">Location</a></li>
+                                <li role="presentation"><a href="#news">Recent News</a></li>
+                                <li role="presentation"><a href="#contact">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer_right">
+                            <h3>Contact Us</h3>
+                            <ul class="list-unstyled footer_contact_info">
+                                <li><a href=""><span class="fa fa-map-marker"></span><p>han01028761623@icloud.com</p></a></li>
+                                <li><a href=""><span class="fa fa-phone"></span><p>010-2876-1623</p></a></li>
+                                <li><a href=""><span class="fa fa-envelope"></span><p>Mon - Sat : 9AM - 6PM</p></a></li>
+                            </ul>
+
+                            <ul class="list-inline social">
+                                <li><a href="" class="fa fa-facebook"></a></li>
+                                <li><a href="" class="fa fa-twitter"></a></li>
+                                <li><a href="" class="fa fa-linkedin"></a></li>
+                                <li><a href="" class="fa fa-youtube"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-copyright text-center">
+                    <p class="wow fadeInRight" data-wow-duration="1s">
+                        Made with          
+                        by 
+                        2018. 서일대학교 201262029 한원준</a> 
+                        
+                    </p>
+                </div>
+            </div>
+        </footer><!-- Footer end -->
+
+
+
+        <!-- scroll up-->
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div><!-- End off scroll up->
+
+        <!-- JavaScript -->
+        <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+        <!--main js-->
+        <script type="text/javascript" src="js/main.js"></script>
+
+    </body>	
+</html>	

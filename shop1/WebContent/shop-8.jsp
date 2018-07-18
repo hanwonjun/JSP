@@ -1,0 +1,303 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="ch08.*"%> 
+<%
+String id = (String) session.getAttribute("id");
+String pass = (String) session.getAttribute("pass");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>한원준의 헬스클럽</title>
+<link rel='stylesheet' href='css/woocommerce-layout.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)'/>
+<link rel='stylesheet' href='css/woocommerce.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/font-awesome.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='style.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/easy-responsive-shortcodes.css' type='text/css' media='all'/>
+
+</head>
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+<div id="page">
+	<div class="container">
+	<% if (session.getAttribute("id") != null){ %>
+		<a href="login.jsp" onClick="login.jsp"><a href="login.jsp" onClick="login.jsp">
+		<font size="4"><font size="4">
+		|<%=id%> 님 환영합니다| </font></a>
+	<% }else if(session.getAttribute("id") == null){ %>
+		<a href="login.jsp" onClick="login.jsp">
+		<font size="4">
+		| 로그인 |</font></a>
+	<% } %>
+
+		
+		<a href="logout.jsp" onClick="logout.jsp">
+		<font  size="4">
+		 로그아웃 |</font></a>
+		<a href="register.jsp" onClick="register.jsp">
+		<font  size="4">
+		 회원가입 |</font></a> 
+	<a href="login.jsp" onClick="login.jsp">
+ 
+		<header id="masthead" class="site-header">
+		<div class="site-branding">
+			<h1 class="site-title"><a href="index.jsp" rel="home">Edge Gym</a></h1>
+			<h2 class="site-description">Myeonmok Station best sports center</h2>
+		</div>
+		<nav id="site-navigation" class="main-navigation">
+		<button class="menu-toggle">Menu</button>
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<div class="menu-menu-1-container">
+			<ul id="menu-menu-1" class="menu">
+				<li><a href="index.jsp">Home</a></li>
+				<li><a href="about.jsp">About</a></li>
+				<li><a href="shop.html">Trainers</a></li>
+				<li><a href="blog.jsp">Blog</a></li>
+				<li><a href="frame.jsp">Board</a></li>
+				<li><a href="#">Pages</a>
+				<ul class="sub-menu">
+					
+					<li><a href="blog-single.jsp">Blog Article</a></li>
+					<li><a href="shop.html">Trainers</a></li>
+					  
+				</ul>
+				</li>
+								<li><a href="#">myInfo</a>
+				<ul class="sub-menu">
+					
+					<li><a href="1basket.jsp">Basket</a></li>
+					<li><a href="1myInfo.jsp">myInfo</a></li>    
+					  
+				</ul>
+				</li>  
+				<li><a href="contact.jsp">Contact</a></li>
+			</ul>
+		</div>
+		</nav>
+		</header>
+		<!-- #masthead -->
+		<div id="content" class="site-content">
+			<div id="primary" class="content-area column full">
+				<main id="main" class="site-main" role="main">
+				<div id="container">
+					<div id="content" role="main">
+						<nav class="woocommerce-breadcrumb" itemprop="breadcrumb"><a href="#">Home</a> / <a href="#">Trainer</a> / Koo Hyun Ho</nav>
+						<div itemscope itemtype="http://schema.org/Product" class="product">
+							<div class="images">
+								<a href="" itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto">								
+								<img src="img/health/3.m.jpg" alt=""></img></a>
+							</div>
+							<div class="summary entry-summary">
+								<h1 itemprop="name" class="product_title entry-title">Koo Hyun Ho</h1>
+								<div class="woocommerce-product-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+									<a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<span itemprop="reviewCount" class="count">2</span> customer reviews)</a>
+								</div>
+								<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+									<p class="price">
+										<span class="amount">Monthly trainer cost - $49.00</span>
+									</p>
+									<meta itemprop="price" content="35"/>
+									<meta itemprop="priceCurrency" content="USD"/>
+									<link itemprop="availability" href="http://schema.org/InStock"/>
+								</div>
+								<div itemprop="description">
+									<p>
+										안녕하세요 Edge Gym 트레이너입니다.<br>
+진심을 다해 지도하는 트레이너의 모습으로<br>
+올바른 회원들님들과 함께 건강한 정신 그리고 건강한 육체를<br>
+만들어가고 싶습니다.<p>
+
+
+
+									<hr>Reservation
+								</div>
+								<form class="cart" method="post" enctype='multipart/form-data'>Months
+								<a href = "http://localhost:8080/shop1/bookInfo.jsp?isbn=9788996094029">
+								<button type="button">Add to cart</button></a>
+									<div class="quantity">
+										<input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
+									</div>									
+									
+								</form>
+								<form class="cart" method="post" enctype='multipart/form-data'>
+								</form>
+								<div class="product_meta">
+									<span class="posted_in">Categories: 
+									<a href="#" rel="tag">Health</a>  
+									<a href="#" rel="tag">Fitness</a>
+									</span>
+								</div>
+							</div>
+							<!-- .summary -->
+							<div class="woocommerce-tabs wc-tabs-wrapper">
+									<div class="panel entry-content wc-tab" id="tab-description">
+									<h2>Reservation Description</h2>
+									<p>
+										경력사항<p>
+-아이노스휘트니스 전트레이너<br>
+-73kg 국가대표선발전 2위<br>
+-73kg 전국체전 1위<p>
+
+자격사항<p>
+-생활스포츠지도사 2급 유도<br>
+-생활스포츠지도사 2급 보디빌딩<br>
+-스킨스쿠버 3급 마스터<br>
+-Gym Stick 교육수료<br>
+-케틀벨교육 수료<br>
+-라이프가드(인명구조요원) <br>
+-스포츠 마사지 3급<br>
+-테이핑 요법
+
+
+									</p>
+								</div>
+								<div class="panel entry-content wc-tab" id="tab-reviews">
+									<div id="reviews">
+										<div id="comments">
+											<h2>2 Reviews for Koo Hyun Ho</h2>
+											<ol class="commentlist">
+												<li itemprop="review" itemscope itemtype="http://schema.org/Review" class="comment">
+												<div id="comment-3" class="comment_container">
+													<img alt='' src='http://0.gravatar.com/avatar/c7cab278a651f438795c2a9ebf02b5ae?s=60&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/c7cab278a651f438795c2a9ebf02b5ae?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60'/>
+													<div class="comment-text">	
+														<p class="meta">
+															<strong itemprop="author">Steve</strong> &ndash; <time itemprop="datePublished" datetime="2013-06-07T15:54:25+00:00">June 7, 2013</time>:
+														</p>
+														<div itemprop="description" class="description">
+															<p>
+																He was the best teacher.
+															</p>
+														</div>
+													</div>
+												</div>
+												</li>
+												<!-- #comment-## -->
+												<li itemprop="review" itemscope itemtype="http://schema.org/Review" class="comment">
+												<div id="comment-4" class="comment_container">
+													<img alt='' src='http://2.gravatar.com/avatar/59c82b1d2c60537f900fb191b3cb611b?s=60&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/59c82b1d2c60537f900fb191b3cb611b?s=120&amp;d=mm&amp;r=g 2x' class='avatar avatar-60 photo' height='60' width='60'/>
+													<div class="comment-text">													
+														<p class="meta">
+															<strong itemprop="author">Maria</strong> &ndash; <time itemprop="datePublished" datetime="2013-06-07T15:54:25+00:00">June 7, 2013</time>:
+														</p>
+														<div itemprop="description" class="description">
+															<p>
+																Three letters, one word: WOO!
+															</p>
+														</div>
+													</div>
+												</div>
+												</li>
+												<!-- #comment-## -->
+											</ol>
+										</div>
+										<div id="review_form_wrapper">
+											<div id="review_form">
+												<div id="respond" class="comment-respond">
+													<h3 style="margin-bottom:10px;" id="reply-title" class="comment-reply-title">Add a review <small><a rel="nofollow" id="cancel-comment-reply-link" href="/demo-Edge Gym/product/woo-logo-2/#respond" style="display:none;">Cancel reply</a></small></h3>
+													<form action="#" method="post" id="commentform" class="comment-form" novalidate>
+														<p class="comment-form-rating">
+															<label for="rating">Your Rating</label>
+															<select name="rating" id="rating">
+																<option value="">Rate&hellip;</option>
+																<option value="5">Perfect</option>
+																<option value="4">Good</option>
+																<option value="3">Average</option>
+																<option value="2">Not that bad</option>
+																<option value="1">Very Poor</option>
+															</select>
+														</p>
+														<p class="comment-form-comment">
+															<label for="comment">Your Review</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+														</p>
+														<p class="comment-form-author">
+															<label for="author">Name <span class="required">*</span></label><input id="author" name="author" type="text" value="" size="30" aria-required="true"/>
+														</p>
+														<p class="comment-form-email">
+															<label for="email">Email <span class="required">*</span></label><input id="email" name="email" type="text" value="" size="30" aria-required="true"/>
+														</p>
+														<p class="form-submit">
+															<input name="submit" type="submit" id="submit" class="submit" value="Submit"/><input type='hidden' name='comment_post_ID' value='60' id='comment_post_ID'/>															
+														</p>
+													</form>
+												</div>
+												<!-- #respond -->
+											</div>
+										</div>
+										<div class="clear">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="related products">
+								<h2>Related Reservation </h2>
+								<ul class="products">
+									<li class="first product">
+									<a href="shop-single.jsp">
+									<span class="onsale">Best!</span>									
+									<img src="img/health/1.profile.jpg" alt=""></img>
+									<h3>Trainer - Han Won Joon</h3>
+									<span class="price"><del><span class="amount">$35.00</span></del><ins><span class="amount">&#36;14.00</span></ins></span>
+									</a>
+									<a href="#" class="button">Add to cart</a>
+									</li>
+									
+									<li class="product">
+									<a href="shop-2.jsp">								
+									<img src="img/health/1.w.pro.png" alt=""></img>
+									<h3>Trainer - In Hye Bin</h3>
+									<span class="price"><span class="amount">$66.00</span></span>
+									</a>
+									<a href="#" class="button">Add to cart</a>
+									</li>
+									
+									<li class="product">
+									<a href="shop-3.jsp">								
+									<img src="img/health/1.m.pro.jpg" alt=""></img>
+									<h3>Trainer - Kim Jin-hae</h3>
+									<span class="price"><span class="amount">$125.00</span></span>
+									</a>
+									<a href="#" class="button">Add to cart</a>
+									</li>
+									
+									
+									<li class="product last">
+									<a href="shop-4.jsp">									
+									<img src="img/health/2.w.pro.jpg" alt=""></img>
+									<h3>Trainer - Cho Mi Ji</h3>
+									<span class="price"><span class="amount">$28.00</span></span>
+									</a>
+									<a href="#" class="button">Add to cart</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				</main>
+				<!-- #main -->
+			</div>
+			<!-- #primary -->
+		</div>
+		<!-- #content -->
+	</div>
+	<!-- .container -->
+	<footer id="colophon" class="site-footer">
+	<div class="container">
+		<div class="site-info">
+			<h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">Edge Gym</h1>
+			Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">Myeonmok Station best sports center</a>
+
+		</div>
+	</div>
+	</footer>
+	<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
+</div>
+<!-- #page -->
+<script src='js/jquery.js'></script>
+<script src='js/plugins.js'></script>
+<script src='js/scripts.js'></script>
+<script src='js/masonry.pkgd.min.js'></script>
+</body>
+</html>
